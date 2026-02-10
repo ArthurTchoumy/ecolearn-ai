@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Learning Service
+        run: docker build backend/learning_service
+
+      - name: Build Carbon Service
+        run: docker build backend/carbon_service

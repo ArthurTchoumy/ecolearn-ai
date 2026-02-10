@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  learning:
+    build: backend/learning_service
+    ports:
+      - "8001:8000"
+
+  carbon:
+    build: backend/carbon_service
+    ports:
+      - "8002:8000"
+
+  frontend:
+    build: frontend
+    ports:
+      - "3000:3000"
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ecolearn
+      POSTGRES_PASSWORD: ecolearn
+      POSTGRES_DB: ecolearn
